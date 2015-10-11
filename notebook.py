@@ -67,7 +67,7 @@ class MainPage(Handler):
 		notebook_name = self.request.get('notebook_name',
 										  DEFAULT_NOTEBOOK_NAME)
 		notes_query = Note.query(
-			ancestor=notebook_key(notebook_name)).order(-Note.date)
+			ancestor=notebook_key(notebook_name)).order(Note.date)
 		num_notes = 10
 		notes = notes_query.fetch(num_notes)
 
