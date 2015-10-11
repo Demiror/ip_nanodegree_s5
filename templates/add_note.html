@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 drop-shadow">		
+			<form action="/submit_note?notebook_name={{ notebook_name }}" method="post">
+				<div>
+					Concept Title:<br>
+					<input name="title">
+				</div>
+				<div>
+					Concept Content:<br>
+					<textarea name="content" rows="3" cols="60"></textarea><br>
+					<input type="submit" value="Add Note">
+				</div>
+			</form>
+			{% if note_error == "True" %}
+				<div class="error" style="color:red">
+					You cannot leave a blanks content fields in your notes.
+				</div>
+			{% endif %}
+		</div>
+		<div class="col-md-3 drop-shadow">
+			<form>Notebook name:<br>
+				<input value="{{ notebook_name }}" name="notebook_name">
+				<input type="submit" value="switch">
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

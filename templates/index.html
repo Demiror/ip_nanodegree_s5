@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			{% for note in notes %}
+				<div class="drop-shadow">
+					<a name="{{ note.key.urlsafe() }}"></a>
+					{% autoescape false %}
+					<h2>{{ note.title }}</h2>
+					{{ note.content }}
+					{% endautoescape %}
+					<hr>
+					<form method="post">
+						<div><textarea name="comment_content" rows="2" cols="60"></textarea></div>
+						<input name="key" type="hidden" value="{{ note.key.urlsafe() }}">
+						<div><input type="submit" value="Comment"></div>
+					</form>
+					{% if comment_error == note.key.urlsafe() %}
+						<div class="error" style="color:red">
+							You cannot leave a blank comment.
+						</div>
+					{% endif %}
+					<div class="comments">
+						<h3 class="header">Comments</h3>
+						<div class="content">
+						{% for comment in note.comments %}
+							{% if comment.author %}
+								<b>{{ comment.author.email }}
+									{% if user and user.user_id() == comment.author.identity %}
+										(You)
+									{% endif %}
+								</b>wrote:
+							{% else %}
+								An anonymous person wrote:
+							{% endif %}
+							<p>{{ comment.comment_content }}</p>						
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="col-md-3">
+			<div class="drop-shadow">
+				{% for note in notes %}
+					<a href='#{{ note.key.urlsafe() }}'>{{ note.title }}</a><br>
+				{% endfor %}
+				<hr>
+				<a href="/add_note">Add Note</a><br>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+body {
+	background-color: #EFEFEF;
+}
+
+.drop-shadow {
+	box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+	margin: 15px;
+	padding: 5px 20px;
+	background-color: #fff;
+}
+
+.easter-egg a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: #333333;
+}
+
+/* unvisited link */
+a:link {
+    color: #000;
+}
+
+/* visited link */
+a:visited {
+    color: #000;
+}
+
+/* mouse over link */
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+
+.header{
+  background:url('http://test.ncdjjdp.org/resources/graphics/global/downArrow15x15_darkGray.png') no-repeat;
+  background-position:right 0px;
+  cursor:pointer;
+  width: 150px;
+}
+
+.collapsed .header{
+  background-image:url('http://test.ncdjjdp.org/resources/graphics/global/upArrow15x15_darkGray.png');
+}
+.content{
+  height:auto;
+  min-height:100px;
+  overflow:hidden;
+  transition:all 0.3s linear;
+  -webkit-transition:all 0.3s linear;
+  -moz-transition:all 0.3s linear;
+  -ms-transition:all 0.3s linear;
+  -o-transition:all 0.3s linear;
+}
+.collapsed .content{
+  min-height:0px;
+  height:0px;
+}

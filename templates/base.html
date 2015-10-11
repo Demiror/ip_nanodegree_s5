@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--
+		<meta name="description" content="">
+		<meta name="author" content="">
+		-->
+
+		<title>{{ notebook_name }}</title>
+		<link rel="stylesheet" href="http://normalize-css.googlecode.com/svn/trunk/normalize.css">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/jQuery.js"></script>
+		<script src="js/main.js"></script>
+
+
+	</head>
+
+	<body>
+
+		<div class="navbar navbar-inverse">
+			<div class="navbar-header">
+	   			<a href="/?notebook_name={{ url_notebook_name }}" class="navbar-brand">Intro to Programming: {{ notebook_name }}</a>
+			</div>
+	    	<div class="navbar-header navbar-right">
+	    		<a href="{{ url|safe }}" class="navbar-brand">{{ url_linktext }}</a>
+	    	</div>
+	    </div>
+	    
+			{% block content %}
+			{% endblock %}
+		
+		</div>
+	</body>
+</html>
